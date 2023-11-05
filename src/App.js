@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, Card, CardActionArea, CardMedia } from "@mui/material";
+import { imagedata } from "./images.js";
+import "./Gallery-Style.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ px: "10px", py: "10px" }}>
+      <div className="image-grid">        {/* add image-grid class which will create grid-layout with 5 spans */}
+        {imagedata.map((image, index) => (
+          <div
+            key={index}
+            className={index === 0 ? "feature-image" : "grid-item"}   // Set the 1st image(index = 0) as the feature image
+          >
+            <Card sx={{ border: "1px solid red", BorderRadius: "15px" }}>
+              <CardMedia component="img" image={image.imgPath} alt={"image"} />
+            </Card>
+          </div>
+        ))}
+      </div>
+    </Box>
   );
 }
 
