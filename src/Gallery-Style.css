@@ -1,4 +1,4 @@
-.image-grid {       /* Dis[lay images in grid-layout
+.image-grid {       /* Dis[lay images in grid-layout*/
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* Large screens: 5 images per row */
     gap: 10px;
