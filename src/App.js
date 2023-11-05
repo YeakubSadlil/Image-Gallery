@@ -4,8 +4,8 @@ import "./Gallery-Style.css";
 
 function App() {
   return (
-    <Box >
-      <div className="image-grid">
+    <Box sx={{ px: "10px", py: "10px" }}>
+      <div className="image-grid">        {/* add image-grid class which will create grid-layout with 5 spans */}
         {imagedata.map((image, index) => (
           <div
             key={index}
