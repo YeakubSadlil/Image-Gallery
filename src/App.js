@@ -4,15 +4,15 @@ import "./Gallery-Style.css";
 
 function App() {
   return (
-    <Box>
+    <Box >
       <div className="image-grid">
         {imagedata.map((image, index) => (
           <div
             key={index}
-            className={index === 0 ? "feature-image" : "grid-item"}  // Set the 1st image(index = 0) as the feature image
+            className={index === 0 ? "feature-image" : "grid-item"}   // Set the 1st image(index = 0) as the feature image
           >
-            <Card>
-              <CardMedia component="img" image={image.imgPath} alt={"image"} />  
+            <Card sx={{ border: "1px solid red", BorderRadius: "15px" }}>
+              <CardMedia component="img" image={image.imgPath} alt={"image"} />
             </Card>
           </div>
         ))}
