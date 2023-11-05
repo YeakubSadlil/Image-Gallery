@@ -21,7 +21,7 @@ function App() {
     setHovered({ id: id, value: false });
   }
   const handleSelected = (id) => {
-    setSelectedItem((pre) => [...pre, id]);
+    setSelectedItem((pre) => [...pre, id]);  // store all the selected images id in an array
     console.log(selectedItem);
   };
   //console.log(isHovered);
@@ -29,7 +29,6 @@ function App() {
   return (
     <Box sx={{ px: "10px", py: "10px" }}>
       <div className="image-grid">
-        {" "}
         {/* add image-grid class which will create grid-layout with 5 spans */}
         {imagedata.map((image, index) => (
           <div
@@ -39,7 +38,7 @@ function App() {
             <Card sx={{ border: "1px solid red", BorderRadius: "15px" }}>
               <CardActionArea onMouseOver={() => handleMouseHover(image.id)}
                               onMouseOut={() => handleMouseOut(image.id)}>
-                <CardHeader
+                <CardHeader sx={{ position: "absolute" }}
                   title={
                     <Box>
                       <Checkbox onClick={() => handleSelected(image.id)}/>
