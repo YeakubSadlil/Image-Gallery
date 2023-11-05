@@ -19,9 +19,9 @@ function App() {
   };
   const handleMouseOut = (id) => {
     setHovered({ id: id, value: false });
-  }
+  };
   const handleSelected = (id) => {
-    setSelectedItem((pre) => [...pre, id]);  // store all the selected images id in an array
+    setSelectedItem((pre) => [...pre, id]); // store all the selected images id in an array
     console.log(selectedItem);
   };
   //console.log(isHovered);
@@ -36,15 +36,21 @@ function App() {
             className={index === 0 ? "feature-image" : "grid-item"} // Set the 1st image(index = 0) as the feature image
           >
             <Card sx={{ border: "1px solid red", BorderRadius: "15px" }}>
-              <CardActionArea onMouseOver={() => handleMouseHover(image.id)}
-                              onMouseOut={() => handleMouseOut(image.id)}>
-                <CardHeader sx={{ position: "absolute" }}
-                  title={
-                    <Box>
-                      <Checkbox onClick={() => handleSelected(image.id)}/>
-                    </Box>
-                  }
-                />
+              <CardActionArea
+                onMouseOver={() => handleMouseHover(image.id)}
+                onMouseOut={() => handleMouseOut(image.id)}
+              >
+                {(isHovered.id === image.id ||
+                  selectedItem.includes(image.id)) && (
+                  <CardHeader
+                    sx={{ position: "absolute" }}
+                    title={
+                      <Box>
+                        <Checkbox onClick={() => handleSelected(image.id)} />
+                      </Box>
+                    }
+                  />
+                )}
                 <CardMedia
                   component="img"
                   image={image.imgPath}
