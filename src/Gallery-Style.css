@@ -1,0 +1,41 @@
+.image-grid {       /* Dis[lay images in grid-layout
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Large screens: 5 images per row */
+    gap: 10px;
+  }
+  
+  /* Set featuer image as the top-left or first image in the list) */
+    .feature-image {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    
+  .grid-item {      /* Display images in flex-layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+
+  /* Set 100% width and height for all images */
+  .grid-item img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+  
+  /* Make screen responsive for Tab screen */
+  @media (max-width: 768px) {
+    .image-grid {
+      grid-template-columns: repeat(3, 1fr); /* medium screens- 3 images per row */
+    }
+  }
+  
+ /* Make screen responsive for mobile screen */
+  @media (max-width: 480px) {
+    .image-grid {
+      grid-template-columns: repeat(1, 1fr); /* Mobile screens- 1 image per row */
+    }
+  }
