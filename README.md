@@ -6,6 +6,12 @@ This project is a responsive image gallery built using React with multiple image
 It offers an effortless and visually appealing user experience.
 </p>
 
+<p align="center">
+  <img src="https://github.com/YeakubSadlil/Image-Gallery/blob/main/gallery1.gif?raw=true" alt="GIF" />
+</p>
+
+
+  
 ## Table of Contents
 - [Features](#features)
 - [Live URL](#Live-URL)
