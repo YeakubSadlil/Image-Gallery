@@ -38,6 +38,12 @@ function App() {
     }
   };
 
+  const deleteSelectedItems = () => {
+    const updatedItem = images.filter((each) => {
+      return !selectedItem.includes(each.id);      // return those images that are not selected and keep on the image list
+    });
+    setImages(updatedItem);
+  };
 
   return (
     <Box sx={{ py: "20px", px: "10px" }}>
@@ -52,6 +58,16 @@ function App() {
                   <CheckCircleOutline />
                 </IconButton>
                 {selectedItem.length} Files Selected
+              </Typography>
+              <Typography sx={{ textAlign: "right" }}>
+                <Button
+                  variant="text"
+                  color="error"
+                  sx={{ textTransform: "capitalize" }}
+                  onClick={() => deleteSelectedItems()}
+                >
+                  Delete Files
+                </Button>
               </Typography>
             </Box>
           )}
