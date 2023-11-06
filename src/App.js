@@ -43,6 +43,7 @@ function App() {
       return !selectedItem.includes(each.id);      // return those images that are not selected and keep on the image list
     });
     setImages(updatedItem);
+    setSelectedItem([]);                           // reset the selected item list to 0
   };
 
   return (
