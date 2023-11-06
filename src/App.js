@@ -1,46 +1,49 @@
+import { useState } from "react";
+import { imagedata } from "./images";
+import "./Gallery-Style.css";
 import {
   Box,
+  Button,
   Card,
   CardActionArea,
-  CardMedia,
   CardHeader,
+  CardMedia,
   Checkbox,
 } from "@mui/material";
-import { imagedata } from "./images.js";
-import "./Gallery-Style.css";
-import { useState } from "react";
 
 function App() {
+  const [images, setImages] = useState(imagedata);
+  const [isHovered, setIsHovered] = useState({ id: null, value: false });
   const [selectedItem, setSelectedItem] = useState([]);
-  const [isHovered, setHovered] = useState({ id: null, value: false });
 
-  const handleMouseHover = (id) => {
-    setHovered({ id: id, value: true });
+  const handleMouseOver = (id) => {
+    setIsHovered({ id: id, value: true });
   };
+  // console.log(isHovered)
   const handleMouseOut = (id) => {
-    setHovered({ id: id, value: false });
+    setIsHovered({ id: id, value: false });
   };
-  const handleSelected = (id) => {
-    setSelectedItem((pre) => [...pre, id]); // store all the selected images id in an array
-    console.log(selectedItem);
+
+  const handleSelected = (id) => {					// store all the selected images id in an array
+    setSelectedItem((pre) => [...pre, id]);
+    // console.log(selectedItem);
   };
-  //console.log(isHovered);
 
   return (
-    <Box sx={{ px: "10px", py: "10px" }}>
+    <Box sx={{ py: "20px", px: "10px" }}>
       <div className="image-grid">
-        {/* add image-grid class which will create grid-layout with 5 spans */}
-        {imagedata.map((image, index) => (
+      {/* add image-grid class which will create grid-layout with 5 spans */}
+        {images.map((image, index) => (
           <div
             key={index}
-            className={index === 0 ? "feature-image" : "grid-item"} // Set the 1st image(index = 0) as the feature image
+            className={`grid-item ${index === 0 ? "feature-image" : ""}`}  // Set the 1st image(index = 0) as the feature image
           >
-            <Card sx={{ border: "1px solid red", BorderRadius: "15px" }}>
+            <Card sx={{ border: "1px solid gray", borderRadius: "10px" }}>
               <CardActionArea
-                onMouseOver={() => handleMouseHover(image.id)}
+                onMouseOver={() => handleMouseOver(image.id)}
                 onMouseOut={() => handleMouseOut(image.id)}
               >
-                {(isHovered.id === image.id ||
+                {((isHovered.id === image.id ) ||
                   selectedItem.includes(image.id)) && (
                   <CardHeader
                     sx={{ position: "absolute" }}
@@ -54,7 +57,7 @@ function App() {
                 <CardMedia
                   component="img"
                   image={image.imgPath}
-                  alt={"image"}
+                  alt={image.imgPath}
                 />
               </CardActionArea>
             </Card>
