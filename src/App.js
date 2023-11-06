@@ -58,7 +58,7 @@ function App() {
                 <IconButton>
                   <CheckCircleOutline />
                 </IconButton>
-                {selectedItem.length} Files Selected
+                {selectedItem.length} {selectedItem.length === 1 ? "File" : "Files"} Selected
               </Typography>
               <Typography sx={{ textAlign: "right" }}>
                 <Button
