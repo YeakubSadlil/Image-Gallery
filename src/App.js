@@ -37,12 +37,26 @@ function App() {
       setSelectedItem((pre) => [...pre, id]);
     }
   };
-  // console.log(selectedItem)
+
+
   return (
     <Box sx={{ py: "20px", px: "10px" }}>
       <Card
         sx={{ padding: "10px", border: "1px solid gray", borderRadius: "10px" }}
       >
+        <Box>
+          {selectedItem.length >= 1 && (
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Typography variant="h6">
+                <IconButton>
+                  <CheckCircleOutline />
+                </IconButton>
+                {selectedItem.length} Files Selected
+              </Typography>
+            </Box>
+          )}
+        </Box>
+
         <div className="image-grid">
           {images.map((image, index) => (
             <div
@@ -54,9 +68,9 @@ function App() {
                   onMouseOver={() => handleMouseOver(image.id)}
                   onMouseOut={() => handleMouseOut(image.id)}
                 >
-                  {(isHovered.id === image.id || // show checkbox for only the image that is hovered
-                    selectedItem.includes(image.id)) && ( // or show checkboxes only for the images that are selected
-                    <CardHeader // otherwise checkboxes will not be shown
+                  {(isHovered.id === image.id ||                // show checkbox for only the image that is hovered
+                    selectedItem.includes(image.id)) && (       // or show checkboxes only for the images that are selected
+                    <CardHeader                                 // otherwise checkboxes will not be shown
                       sx={{ position: "absolute" }}
                       title={
                         <Box>
