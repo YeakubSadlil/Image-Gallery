@@ -20,7 +20,7 @@ It offers an effortless and visually appealing user experience.
 
 ## Live URL
 You have the option to interact with the project's live demo [here](https://yeakubsadlil.github.io/Image-Gallery/).
-## Getting Started
+## Usage
 To run this project locally, follow these steps:
 
 1. Clone the repository:
